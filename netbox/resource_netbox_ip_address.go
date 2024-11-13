@@ -78,6 +78,10 @@ func resourceNetboxIPAddress() *schema.Resource {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
+			"comments": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
 			"role": {
 				Type:         schema.TypeString,
 				Optional:     true,
@@ -125,6 +129,7 @@ func resourceNetboxIPAddressCreate(d *schema.ResourceData, m interface{}) error 
 	data.Status = d.Get("status").(string)
 
 	data.Description = getOptionalStr(d, "description", false)
+	data.Comments = getOptionalStr(d, "comments", false)
 	data.Role = getOptionalStr(d, "role", false)
 	data.DNSName = getOptionalStr(d, "dns_name", false)
 	data.Vrf = getOptionalInt(d, "vrf_id")
@@ -259,6 +264,7 @@ func resourceNetboxIPAddressRead(d *schema.ResourceData, m interface{}) error {
 
 	d.Set("ip_address", ipAddress.Address)
 	d.Set("description", ipAddress.Description)
+	d.Set("comments", ipAddress.Comments)
 	d.Set("status", ipAddress.Status.Value)
 	d.Set(tagsKey, getTagListFromNestedTagList(ipAddress.Tags))
 	cf := getCustomFields(res.GetPayload().CustomFields)
@@ -278,6 +284,7 @@ func resourceNetboxIPAddressUpdate(d *schema.ResourceData, m interface{}) error 
 	data.Status = d.Get("status").(string)
 
 	data.Description = getOptionalStr(d, "description", true)
+	data.Comments = getOptionalStr(d, "comments", true)
 	data.Role = getOptionalStr(d, "role", false)
 	data.DNSName = getOptionalStr(d, "dns_name", true)
 	data.Vrf = getOptionalInt(d, "vrf_id")

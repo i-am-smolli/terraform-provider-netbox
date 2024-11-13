@@ -80,6 +80,10 @@ func dataSourceNetboxIPAddresses() *schema.Resource {
 							Type:     schema.TypeString,
 							Computed: true,
 						},
+						"comment": {
+							Type:     schema.TypeString,
+							Computed: true,
+						},
 						"role": {
 							Type:     schema.TypeString,
 							Computed: true,
@@ -207,6 +211,7 @@ func dataSourceNetboxIPAddressesRead(d *schema.ResourceData, m interface{}) erro
 		mapping["address_family"] = v.Family.Label
 		mapping["status"] = v.Status.Value
 		mapping["dns_name"] = v.DNSName
+		mapping["comment"] = v.Comments
 		mapping["tenant"] = flattenTenant(v.Tenant)
 		var stags []map[string]interface{}
 		for _, t := range v.Tags {
