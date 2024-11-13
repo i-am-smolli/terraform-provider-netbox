@@ -52,7 +52,6 @@ func resourceNetboxVlan() *schema.Resource {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-
 			"site_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
@@ -61,6 +60,10 @@ func resourceNetboxVlan() *schema.Resource {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "",
+			},
+			"comments": {
+				Type:     schema.TypeString,
+				Optional: true,
 			},
 			tagsKey: tagsSchema,
 		},
@@ -74,15 +77,11 @@ func resourceNetboxVlanCreate(d *schema.ResourceData, m interface{}) error {
 	api := m.(*client.NetBoxAPI)
 	data := models.WritableVLAN{}
 
-	name := d.Get("name").(string)
-	vid := int64(d.Get("vid").(int))
-	status := d.Get("status").(string)
-	description := d.Get("description").(string)
-
-	data.Name = &name
-	data.Vid = &vid
-	data.Status = status
-	data.Description = description
+	data.Name = strToPtr(d.Get("name").(string))
+	data.Vid = int64ToPtr(int64(d.Get("vid").(int)))
+	data.Status = d.Get("status").(string)
+	data.Description = getOptionalStr(d, "description", true)
+	data.Comments = getOptionalStr(d, "comments", true)
 
 	if groupID, ok := d.GetOk("group_id"); ok {
 		data.Group = int64ToPtr(int64(groupID.(int)))
@@ -135,6 +134,7 @@ func resourceNetboxVlanRead(d *schema.ResourceData, m interface{}) error {
 	d.Set("name", vlan.Name)
 	d.Set("vid", vlan.Vid)
 	d.Set("description", vlan.Description)
+	d.Set("comments", vlan.Comments)
 	d.Set(tagsKey, getTagListFromNestedTagList(vlan.Tags))
 
 	if vlan.Status != nil {
@@ -158,17 +158,16 @@ func resourceNetboxVlanRead(d *schema.ResourceData, m interface{}) error {
 
 func resourceNetboxVlanUpdate(d *schema.ResourceData, m interface{}) error {
 	api := m.(*client.NetBoxAPI)
+	
 	id, _ := strconv.ParseInt(d.Id(), 10, 64)
 	data := models.WritableVLAN{}
-	name := d.Get("name").(string)
-	vid := int64(d.Get("vid").(int))
-	status := d.Get("status").(string)
-	description := d.Get("description").(string)
 
-	data.Name = &name
-	data.Vid = &vid
-	data.Status = status
-	data.Description = description
+	data.Name = strToPtr(d.Get("name").(string))
+	data.Vid = int64ToPtr(int64(d.Get("vid").(int)))
+	
+	data.Status = d.Get("status").(string)
+	data.Description = getOptionalStr(d, "description", true)
+	data.Comments = getOptionalStr(d, "comments", true)
 
 	if groupID, ok := d.GetOk("group_id"); ok {
 		data.Group = int64ToPtr(int64(groupID.(int)))
