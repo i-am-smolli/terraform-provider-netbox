@@ -55,6 +55,10 @@ func resourceNetboxIPRange() *schema.Resource {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
+			"comments": {
+					Type:     schema.TypeString,
+					Optional: true,
+			},
 			tagsKey: tagsSchema,
 		},
 		Importer: &schema.ResourceImporter{
@@ -67,15 +71,11 @@ func resourceNetboxIPRangeCreate(d *schema.ResourceData, m interface{}) error {
 	api := m.(*client.NetBoxAPI)
 	data := models.WritableIPRange{}
 
-	startAddress := d.Get("start_address").(string)
-	endAddress := d.Get("end_address").(string)
-	status := d.Get("status").(string)
-	description := d.Get("description").(string)
+	data.StartAddress = strToPtr(d.Get("start_address").(string))
+	data.EndAddress = strToPtr(d.Get("end_address").(string))
 
-	data.StartAddress = &startAddress
-	data.EndAddress = &endAddress
-	data.Status = status
-	data.Description = description
+	data.Status = d.Get("status").(string)
+	data.Description = getOptionalStr(d, "description", true)
 
 	data.Tags, _ = getNestedTagListFromResourceDataSet(api, d.Get(tagsKey))
 
@@ -123,9 +123,9 @@ func resourceNetboxIPRangeRead(d *schema.ResourceData, m interface{}) error {
 		d.Set("vrf_id", res.GetPayload().Vrf.ID)
 	}
 
-	if res.GetPayload().Description != "" {
-		d.Set("description", res.GetPayload().Description)
-	}
+	d.Set("description", res.GetPayload().Description)
+
+	d.Set("comments", res.GetPayload().Comments)
 
 	if res.GetPayload().Tenant != nil {
 		d.Set("tenant_id", res.GetPayload().Tenant.ID)
@@ -142,18 +142,16 @@ func resourceNetboxIPRangeRead(d *schema.ResourceData, m interface{}) error {
 
 func resourceNetboxIPRangeUpdate(d *schema.ResourceData, m interface{}) error {
 	api := m.(*client.NetBoxAPI)
+
 	id, _ := strconv.ParseInt(d.Id(), 10, 64)
 	data := models.WritableIPRange{}
-	startAddress := d.Get("start_address").(string)
-	endAddress := d.Get("end_address").(string)
-	status := d.Get("status").(string)
-	description := d.Get("description").(string)
 
-	data.StartAddress = &startAddress
-	data.EndAddress = &endAddress
+	data.StartAddress = strToPtr(d.Get("start_address").(string))
+	data.EndAddress = strToPtr(d.Get("end_address").(string))
 
-	data.Status = status
-	data.Description = description
+	data.Status = d.Get("status").(string)
+	data.Description = getOptionalStr(d, "description", true)
+	data.Comments = getOptionalStr(d, "comments", true)
 
 	if vrfID, ok := d.GetOk("vrf_id"); ok {
 		data.Vrf = int64ToPtr(int64(vrfID.(int)))

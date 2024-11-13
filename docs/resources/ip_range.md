@@ -33,6 +33,7 @@ resource "netbox_ip_range" "cust_a_prod" {
 
 ### Optional
 
+- `comments` (String)
 - `description` (String)
 - `role_id` (Number)
 - `status` (String) Valid values are `active`, `reserved` and `deprecated`. Defaults to `active`.
