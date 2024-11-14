@@ -2,6 +2,7 @@ package netbox
 
 import (
 	"strconv"
+	"strings"
 
 	"github.com/fbreckle/go-netbox/netbox/client"
 	"github.com/fbreckle/go-netbox/netbox/client/ipam"
@@ -52,12 +53,20 @@ func resourceNetboxIPRange() *schema.Resource {
 				Optional: true,
 			},
 			"description": {
+				DiffSuppressFunc: func(k, oldValue, newValue string, d *schema.ResourceData) bool {	
+					return strings.TrimSpace(oldValue) == strings.TrimSpace(newValue)
+				},
+				DiffSuppressOnRefresh: true,
 				Type:     schema.TypeString,
 				Optional: true,
 			},
 			"comments": {
-					Type:     schema.TypeString,
-					Optional: true,
+				DiffSuppressFunc: func(k, oldValue, newValue string, d *schema.ResourceData) bool {	
+					return strings.TrimSpace(oldValue) == strings.TrimSpace(newValue)
+				},
+				DiffSuppressOnRefresh: true,
+				Type:     schema.TypeString,
+				Optional: true,
 			},
 			tagsKey: tagsSchema,
 		},
