@@ -71,7 +71,7 @@ resource "netbox_inventory_item" "test" {
 - `part_id` (String)
 - `role_id` (Number)
 - `serial` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 
 ### Read-Only
 

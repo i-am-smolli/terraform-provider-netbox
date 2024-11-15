@@ -49,7 +49,7 @@ resource "netbox_cluster" "vmw_cluster_01" {
 - `comments` (String)
 - `description` (String)
 - `site_id` (Number)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 
 ### Read-Only

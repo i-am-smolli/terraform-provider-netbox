@@ -42,7 +42,7 @@ resource "netbox_prefix" "my_prefix" {
 - `mark_utilized` (Boolean)
 - `role_id` (Number)
 - `site_id` (Number)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `vlan_id` (Number)
 - `vrf_id` (Number)

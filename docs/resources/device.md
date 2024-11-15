@@ -72,7 +72,7 @@ resource "netbox_device" "test" {
 - `rack_position` (Number)
 - `serial` (String)
 - `status` (String) Valid values are `offline`, `active`, `planned`, `staged`, `failed` and `inventory`. Defaults to `active`.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `virtual_chassis_id` (Number) Required when `virtual_chassis_master` and `virtual_chassis_id` is set.
 - `virtual_chassis_master` (Boolean) Required when `virtual_chassis_master` and `virtual_chassis_id` is set.

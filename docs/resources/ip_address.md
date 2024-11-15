@@ -121,7 +121,7 @@ resource "netbox_ip_address" "this" {
 - `nat_inside_address_id` (Number)
 - `object_type` (String) Valid values are `virtualization.vminterface` and `dcim.interface`. Required when `interface_id` is set.
 - `role` (String) Valid values are `loopback`, `secondary`, `anycast`, `vip`, `vrrp`, `hsrp`, `glbp` and `carp`.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `virtual_machine_interface_id` (Number) Conflicts with `interface_id` and `device_interface_id`.
 - `vrf_id` (Number)

@@ -34,7 +34,7 @@ resource "netbox_device_role" "core_sw" {
 
 - `description` (String)
 - `slug` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `vm_role` (Boolean) Defaults to `true`.
 
 ### Read-Only

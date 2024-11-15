@@ -53,7 +53,7 @@ resource "netbox_vpn_tunnel_termination" "vm" {
 
 - `device_interface_id` (Number) Exactly one of `virtual_machine_interface_id` or `device_interface_id` must be given.
 - `outside_ip_address_id` (Number)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `virtual_machine_interface_id` (Number) Exactly one of `virtual_machine_interface_id` or `device_interface_id` must be given.
 
 ### Read-Only

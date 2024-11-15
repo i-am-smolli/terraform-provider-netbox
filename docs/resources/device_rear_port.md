@@ -52,7 +52,7 @@ resource "netbox_device_rear_port" "test" {
 - `label` (String)
 - `mark_connected` (Boolean) Defaults to `false`.
 - `module_id` (Number)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 
 ### Read-Only
 

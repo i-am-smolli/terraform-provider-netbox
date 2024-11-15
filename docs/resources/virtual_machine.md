@@ -83,7 +83,7 @@ resource "netbox_virtual_machine" "full_vm" {
 - `role_id` (Number)
 - `site_id` (Number) At least one of `site_id` or `cluster_id` must be given.
 - `status` (String) Valid values are `offline`, `active`, `planned`, `staged`, `failed` and `decommissioning`. Defaults to `active`.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `vcpus` (Number)
 

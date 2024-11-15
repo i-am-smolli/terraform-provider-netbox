@@ -63,7 +63,7 @@ resource "netbox_cable" "test" {
 - `label` (String)
 - `length` (Number)
 - `length_unit` (String) One of [km, m, cm, mi, ft, in]. Required when `length` is set.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `type` (String) One of [cat3, cat5, cat5e, cat6, cat6a, cat7, cat7a, cat8, dac-active, dac-passive, mrj21-trunk, coaxial, mmf, mmf-om1, mmf-om2, mmf-om3, mmf-om4, mmf-om5, smf, smf-os1, smf-os2, aoc, power].
 

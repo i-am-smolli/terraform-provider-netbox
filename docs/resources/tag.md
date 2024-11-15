@@ -37,7 +37,7 @@ resource "netbox_tag" "dmz" {
 - `color_hex` (String) Defaults to `9e9e9e`.
 - `description` (String)
 - `slug` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 
 ### Read-Only
 

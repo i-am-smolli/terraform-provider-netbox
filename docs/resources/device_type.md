@@ -40,7 +40,7 @@ resource "netbox_device_type" "test" {
 - `is_full_depth` (Boolean)
 - `part_number` (String)
 - `slug` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `u_height` (Number) Defaults to `1.0`.
 
 ### Read-Only

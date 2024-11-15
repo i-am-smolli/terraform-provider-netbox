@@ -40,7 +40,7 @@ resource "netbox_module_type" "test" {
 - `custom_fields` (Map of String)
 - `description` (String)
 - `part_number` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `weight` (Number)
 - `weight_unit` (String) One of [kg, g, lb, oz]. Required when `weight` is set.
 

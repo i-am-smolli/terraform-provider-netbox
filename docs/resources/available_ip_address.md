@@ -91,7 +91,7 @@ resource "netbox_available_ip_address" "myvm-ip" {
 - `prefix_id` (Number) Exactly one of `prefix_id` or `ip_range_id` must be given.
 - `role` (String) Valid values are `loopback`, `secondary`, `anycast`, `vip`, `vrrp`, `hsrp`, `glbp` and `carp`.
 - `status` (String) Valid values are `active`, `reserved`, `deprecated`, `dhcp` and `slaac`. Defaults to `active`.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `virtual_machine_interface_id` (Number) Conflicts with `interface_id` and `device_interface_id`.
 - `vrf_id` (Number)

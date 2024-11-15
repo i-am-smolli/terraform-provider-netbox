@@ -34,7 +34,7 @@ resource "netbox_vrf" "cust_a_prod" {
 - `description` (String)
 - `enforce_unique` (Boolean) Defaults to `true`.
 - `rd` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 
 ### Read-Only

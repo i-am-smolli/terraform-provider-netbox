@@ -36,7 +36,7 @@ resource "netbox_route_target" "test" {
 ### Optional
 
 - `description` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 
 ### Read-Only

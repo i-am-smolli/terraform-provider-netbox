@@ -38,7 +38,7 @@ resource "netbox_contact" "test" {
 - `email` (String)
 - `group_id` (Number)
 - `phone` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 
 ### Read-Only
 

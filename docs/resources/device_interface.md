@@ -46,7 +46,7 @@ resource "netbox_device_interface" "test" {
 - `parent_device_interface_id` (Number) The netbox_device_interface id of the parent interface. Useful if this interface is a logical interface.
 - `speed` (Number)
 - `tagged_vlans` (Set of Number)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `untagged_vlan` (Number)
 
 ### Read-Only

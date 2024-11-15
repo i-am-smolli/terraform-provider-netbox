@@ -19,6 +19,7 @@ var tagsSchema = &schema.Schema{
 	},
 	Optional: true,
 	Set:      schema.HashString,
+	Description: "A set of strings to attach to the object. Tag must already exist in Netbox.",
 }
 
 var tagsSchemaRead = &schema.Schema{

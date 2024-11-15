@@ -47,7 +47,7 @@ resource "netbox_virtual_disk" "example" {
 
 - `custom_fields` (Map of String)
 - `description` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 
 ### Read-Only
 

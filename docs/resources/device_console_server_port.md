@@ -50,7 +50,7 @@ resource "netbox_device_console_server_port" "test" {
 - `mark_connected` (Boolean) Defaults to `false`.
 - `module_id` (Number)
 - `speed` (Number) One of [1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200].
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `type` (String) One of [de-9, db-25, rj-11, rj-12, rj-45, mini-din-8, usb-a, usb-b, usb-c, usb-mini-a, usb-mini-b, usb-micro-a, usb-micro-b, usb-micro-ab, other].
 
 ### Read-Only

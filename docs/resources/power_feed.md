@@ -67,7 +67,7 @@ resource "netbox_power_feed" "test" {
 - `description` (String)
 - `mark_connected` (Boolean) Defaults to `false`.
 - `rack_id` (Number)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 
 ### Read-Only
 

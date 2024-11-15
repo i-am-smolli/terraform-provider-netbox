@@ -55,7 +55,7 @@ resource "netbox_interface" "myvm_eth1" {
 - `mode` (String) Valid values are `access`, `tagged` and `tagged-all`.
 - `mtu` (Number)
 - `tagged_vlans` (Set of Number)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `type` (String, Deprecated)
 - `untagged_vlan` (Number)
 

@@ -61,7 +61,7 @@ resource "netbox_circuit_termination" "test" {
 
 - `custom_fields` (Map of String)
 - `port_speed` (Number)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `upstream_speed` (Number)
 
 ### Read-Only

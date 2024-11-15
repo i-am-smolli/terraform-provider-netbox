@@ -39,7 +39,7 @@ resource "netbox_config_template" "test" {
 
 - `description` (String)
 - `environment_params` (String) Defaults to `{}`.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 
 ### Read-Only
 

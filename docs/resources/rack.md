@@ -63,7 +63,7 @@ resource "netbox_rack" "test" {
 - `outer_width` (Number)
 - `role_id` (Number)
 - `serial` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `type` (String) Valid values are `2-post-frame`, `4-post-frame`, `4-post-cabinet`, `wall-frame`, `wall-frame-vertical`, `wall-cabinet` and `wall-cabinet-vertical`.
 - `weight` (Number)

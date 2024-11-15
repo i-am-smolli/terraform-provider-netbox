@@ -45,7 +45,7 @@ resource "netbox_vpn_tunnel" "test" {
 ### Optional
 
 - `description` (String)
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `tunnel_id` (Number)
 

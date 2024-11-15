@@ -45,7 +45,7 @@ resource "netbox_event_rule" "test" {
 - `conditions` (String)
 - `description` (String)
 - `enabled` (Boolean) Defaults to `true`.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `trigger_on_create` (Boolean) At least one of `trigger_on_create`, `trigger_on_update`, `trigger_on_delete`, `trigger_on_job_start` or `trigger_on_job_end` must be given.
 - `trigger_on_delete` (Boolean) At least one of `trigger_on_create`, `trigger_on_update`, `trigger_on_delete`, `trigger_on_job_start` or `trigger_on_job_end` must be given.
 - `trigger_on_job_end` (Boolean) At least one of `trigger_on_create`, `trigger_on_update`, `trigger_on_delete`, `trigger_on_job_start` or `trigger_on_job_end` must be given.

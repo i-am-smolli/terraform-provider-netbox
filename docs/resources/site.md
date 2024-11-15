@@ -51,7 +51,7 @@ resource "netbox_site" "example1" {
 - `shipping_address` (String)
 - `slug` (String)
 - `status` (String) Valid values are `planned`, `staging`, `active`, `decommissioning` and `retired`. Defaults to `active`.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 - `timezone` (String)
 

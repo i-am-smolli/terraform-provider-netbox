@@ -28,18 +28,18 @@ resource "netbox_ip_range" "cust_a_prod" {
 
 ### Required
 
-- `end_address` (String)
-- `start_address` (String)
+- `end_address` (String) The last address of the IP range. Needs CIDR notation.
+- `start_address` (String) The first address of the IP range. Needs CIDR notation.
 
 ### Optional
 
-- `comments` (String)
-- `description` (String)
-- `role_id` (Number)
+- `comments` (String) Comments about the IP range. Multi-line comments are supported.
+- `description` (String) Brief description of the IP range.
+- `role_id` (Number) The ID of the role attached to this range.
 - `status` (String) Valid values are `active`, `reserved` and `deprecated`. Defaults to `active`.
-- `tags` (Set of String)
-- `tenant_id` (Number)
-- `vrf_id` (Number)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
+- `tenant_id` (Number) The ID of the tenant which this range belongs to.
+- `vrf_id` (Number) The ID of the VRF which this range belongs to.
 
 ### Read-Only
 

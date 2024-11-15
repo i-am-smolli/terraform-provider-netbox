@@ -51,7 +51,7 @@ resource "netbox_vlan" "example2" {
 - `role_id` (Number)
 - `site_id` (Number)
 - `status` (String) Valid values are `active`, `reserved` and `deprecated`. Defaults to `active`.
-- `tags` (Set of String)
+- `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
 - `tenant_id` (Number)
 
 ### Read-Only

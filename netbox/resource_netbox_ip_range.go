@@ -26,12 +26,14 @@ func resourceNetboxIPRange() *schema.Resource {
 
 		Schema: map[string]*schema.Schema{
 			"start_address": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:         schema.TypeString,
+				Required:     true,
+				Description:  "The first address of the IP range. Needs CIDR notation.",
 			},
 			"end_address": {
-				Type:     schema.TypeString,
-				Required: true,
+				Type:         schema.TypeString,
+				Required: 	  true,
+				Description:  "The last address of the IP range. Needs CIDR notation.",
 			},
 			"status": {
 				Type:         schema.TypeString,
@@ -41,32 +43,39 @@ func resourceNetboxIPRange() *schema.Resource {
 				Description:  buildValidValueDescription(resourceNetboxIPRangeStatusOptions),
 			},
 			"tenant_id": {
-				Type:     schema.TypeInt,
-				Optional: true,
+				Type:         schema.TypeInt,
+				Optional:     true,
+				Description:  "The ID of the tenant which this range belongs to.",
 			},
 			"role_id": {
-				Type:     schema.TypeInt,
-				Optional: true,
+				Type:         schema.TypeInt,
+				Optional:     true,
+				Description:  "The ID of the role attached to this range.",
 			},
 			"vrf_id": {
-				Type:     schema.TypeInt,
-				Optional: true,
+				Type:         schema.TypeInt,
+				Optional:     true,
+				Description:  "The ID of the VRF which this range belongs to.",
 			},
 			"description": {
 				DiffSuppressFunc: func(k, oldValue, newValue string, d *schema.ResourceData) bool {	
 					return strings.TrimSpace(oldValue) == strings.TrimSpace(newValue)
 				},
 				DiffSuppressOnRefresh: true,
-				Type:     schema.TypeString,
-				Optional: true,
+				
+				Type:         schema.TypeString,
+				Optional: 	  true,
+				Description:  "Brief description of the IP range.",
 			},
 			"comments": {
 				DiffSuppressFunc: func(k, oldValue, newValue string, d *schema.ResourceData) bool {	
 					return strings.TrimSpace(oldValue) == strings.TrimSpace(newValue)
 				},
 				DiffSuppressOnRefresh: true,
-				Type:     schema.TypeString,
-				Optional: true,
+
+				Type:         schema.TypeString,
+				Optional:     true,
+				Description:  "Comments about the IP range. Multi-line comments are supported.",
 			},
 			tagsKey: tagsSchema,
 		},
