@@ -161,9 +161,7 @@ func resourceNetboxDeviceTypeUpdate(d *schema.ResourceData, m interface{}) error
 		data.PartNumber = partNo.(string)
 	}
 
-	if uHeightValue, ok := d.GetOk("u_height"); ok {
-		data.UHeight = float64ToPtr(float64(uHeightValue.(float64)))
-	}
+	data.UHeight = float64ToPtr(d.Get("u_height").(float64))
 
 	if isFullDepthValue, ok := d.GetOk("is_full_depth"); ok {
 		data.IsFullDepth = isFullDepthValue.(bool)
