@@ -25,29 +25,35 @@ func resourceNetboxDeviceType() *schema.Resource {
 			"model": {
 				Type:     schema.TypeString,
 				Required: true,
+				Description: "Model of the device type (e.g. 'Catalyst 9300').",
 			},
 			"slug": {
 				Type:         schema.TypeString,
 				Optional:     true,
 				Computed:     true,
 				ValidateFunc: validation.StringLenBetween(1, 100),
+				Description:  "Unique slug used in URLs for the device type. If not provided, it will be generated from the model.",
 			},
 			"manufacturer_id": {
 				Type:     schema.TypeInt,
 				Required: true,
+				Description: "ID of the manufacturer of the device type. Must already exist in NetBox.",
 			},
 			"part_number": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Description: "Part number for the device type (e.g. 'C9300-24P').",
 			},
 			"u_height": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 				Default:  "1.0",
+				Description: "Height of the device in rack units (u), in increments of 0.5 (e.g. 0, 0.5, 2, 2.5, ...).",
 			},
 			"is_full_depth": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Description: "Indicates if the device is full rack depth.",
 			},
 			tagsKey: tagsSchema,
 		},

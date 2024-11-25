@@ -32,16 +32,16 @@ resource "netbox_device_type" "test" {
 
 ### Required
 
-- `manufacturer_id` (Number)
-- `model` (String)
+- `manufacturer_id` (Number) ID of the manufacturer of the device type. Must already exist in NetBox.
+- `model` (String) Model of the device type (e.g. 'Catalyst 9300').
 
 ### Optional
 
-- `is_full_depth` (Boolean)
-- `part_number` (String)
-- `slug` (String)
+- `is_full_depth` (Boolean) Indicates if the device is full rack depth.
+- `part_number` (String) Part number for the device type (e.g. 'C9300-24P').
+- `slug` (String) Unique slug used in URLs for the device type. If not provided, it will be generated from the model.
 - `tags` (Set of String) A set of strings to attach to the object. Tag must already exist in Netbox.
-- `u_height` (Number) Defaults to `1.0`.
+- `u_height` (Number) Height of the device in rack units (u), in increments of 0.5 (e.g. 0, 0.5, 2, 2.5, ...). Defaults to `1.0`.
 
 ### Read-Only
 
